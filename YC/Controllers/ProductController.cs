@@ -14,7 +14,16 @@ namespace YC.Controllers
             return View();
         }
 
+        [Route("AddProduct/89696FC7-661E-449E-9884-37915787CF2C")]
+        [HttpGet]
         public ActionResult AddProduct()
+        {
+            return View();
+        }
+
+        [Route("AddProduct/89696FC7-661E-449E-9884-37915787CF2C")]
+        [HttpPost]
+        public ActionResult SaveProduct()
         {
             return View();
         }
