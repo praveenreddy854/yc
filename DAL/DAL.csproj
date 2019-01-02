@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryDataProvider.cs" />
+    <Compile Include="ICategoryDataProvider.cs" />
     <Compile Include="Migrations\201812310106201_Initialmigration.cs" />
     <Compile Include="Migrations\201812310106201_Initialmigration.Designer.cs">
       <DependentUpon>201812310106201_Initialmigration.cs</DependentUpon>

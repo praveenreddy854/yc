@@ -1,6 +1,6 @@
 ﻿
 <link href="~/Content/Product/AddProduct.css" rel="stylesheet" />
-<div class="container" data-context="new AddProduct.BaseForm()">
+<div class="container">
     <div class="row">
         <div class="col-md-2">
         </div>
@@ -8,21 +8,19 @@
             <div class="form_main">
                 <h4 class="heading">Add Product</h4>
                 <div class="form">
-                    <form action="contact_send_mail.php" method="post" id="contactFrm" name="contactFrm">
-                        <input type="text" required="" placeholder="Product Name" value="" name="name" class="inputyc">
-                        <select type="text" required="" placeholder="Category" value="" name="mob" class="dropdownyc">
-                            <option>
-                                Computers
-                            </option>
+                    <div method="post" data-context="new AddProduct.BaseForm()">
+                        <input type="text" required="" data-bind="value: ProductName" placeholder="Product Name" name="name" class="inputyc">
+                        <select type="text" required="" data-bind="foreach: Categories" placeholder="Category" value="" name="mob" class="dropdownyc">
+                            <option data-bind="value: Name"></option>
                         </select>
-                        <input type="text" required="" placeholder="Image Url" value="" name="imgurl" class="inputyc">
-                        <input type="text" required="" placeholder="Amazon India Url" value="" name="amzimgurl" class="inputyc">
-                        <input type="text" required="" placeholder="Amazon Price" value="" name="amzprice" class="inputyc">
-                        <input type="text" required="" placeholder="Paytm Url" value="" name="paytmurl" class="inputyc">
-                        <input type="text" required="" placeholder="Paytm Price" value="" name="paytmprice" class="inputyc">
+                        <input type="text" required="" placeholder="Image Url" data-bind="value: ImgUrl"  name="imgurl" class="inputyc">
+                        <input type="text" required="" placeholder="Amazon India Url" data-bind="value: AmazonUrl"  name="amzimgurl" class="inputyc">
+                        <input type="text" required="" placeholder="Amazon Price" data-bind="value: AmazonPrice"  name="amzprice" class="inputyc">
+                        <input type="text" required="" placeholder="Paytm Url" data-bind="value: PaytmUrl"  name="paytmurl" class="inputyc">
+                        <input type="text" required="" placeholder="Paytm Price" data-bind="value: PaytmPrice"  name="paytmprice" class="inputyc">
 
                         <input type="submit" value="submit" name="submit" class="btn btn-primary inputyc">
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
