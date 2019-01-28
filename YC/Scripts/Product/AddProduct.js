@@ -5,7 +5,7 @@
 
         var self = this;
 
-        self.ProductName = ko.observable("ABCD");
+        self.ProductName = ko.observable("");
         self.Categories = ko.observableArray([]);
         $.ajax({
             url: currentDomain + "/Category/GetAllCategories", async: false, complete: function (data) {
@@ -15,7 +15,7 @@
             }
         });
 
-        self.ImgUrl = ko.observable("cjncsakjd");
+        self.ImgUrl = ko.observable("");
         self.AmazonUrl = ko.observable("");
         self.AmazonPrice = ko.observable("");
         self.PaytmUrl = ko.observable("");

@@ -1,11 +1,12 @@
 ﻿var divs = document.querySelectorAll("[data-context]");
 var functioname = "";
 var currentDomain = window.location.hash;
+var tempSelf;
 $.each(divs, function (index, div) {
     var functioname = div.getAttribute("data-context");
     if (functioname) {
         var self = eval(functioname);
-
+        tempSelf = self;
         var children = div.getElementsByTagName("*");
         var targetChildren = [];
         Object.assign(targetChildren, children);
@@ -58,23 +59,23 @@ function CustomBind(customAttr, child, role, self) {
 
 function AddInputChangedEvent(name, element) {
     var isOnChnagedExists = element.getAttribute('onchange');
-    if (!isOnChnagedExists)
+    if (isOnChnagedExists)
         return;
     element.setAttribute('onchange', 'InputChanged(this)');
 }
 
 function InputChanged(elemenet) {
-    elemenet.getAttribute("data-bind");
+    var customAttr = elemenet.getAttribute("data-bind");
     var attrs = customAttr.split(',');
     $.each(attrs, function (index2, attr) {
-        if (!attr.contains('value')) {
-            continue;
+        if (attr.includes('value')) {
+
+            var fullAttr = attr.split(':');
+            var functionNameOnly = fullAttr[1].trim().split('(');
+            var functionNameWithData = functionNameOnly[0] + "('" + elemenet.value + "')";
+            eval(functionNameWithData.replace('$data', 'tempSelf'));
+            console.log(elemenet);
         }
-        var fullAttr = attr.split(':');
-        var functionNameOnly = fullAttr[1].trim().split('(');
-        var functionNameWithData = functionNameOnly + '(' + elemenet.getAttribute('value') + ')';
-        eval(functionNameWithData.replace('$data', 'self'));
-        console.log(elemenet);
 
     })
 }
