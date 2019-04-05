@@ -8,22 +8,22 @@
             <div class="form_main">
                 <h4 class="heading">Add Product</h4>
                 <div class="form">
-                    <div method="post" data-context="new AddProduct.BaseForm()">
-                        <input type="text" required="" data-role="input" data-bind="value: $data.ProductName()" placeholder="Product Name" name="name" class="inputyc">
-                        <select  required="" data-role="dropdown" data-bind="$data.Categories()" placeholder="Category" value="" name="categories" class="dropdownyc">
+                    <div method="post">
+                        <input type="text" id="productname" required="Enter Product Name"  placeholder="Product Name" class="inputyc">
+                        <select  required="" id="categories" class="dropdownyc">
+                            
                         </select>
-                        <input type="text" required="" data-role="input" placeholder="Image Url" data-bind="value: $data.ImgUrl()"  name="imgurl" class="inputyc">
-                        <input type="text" required="" data-role="input" placeholder="Amazon India Url" data-bind="value: $data.AmazonUrl()"  name="amzimgurl" class="inputyc">
-                        <input type="text" required="" data-role="input" placeholder="Amazon Price" data-bind="value: $data.AmazonPrice()"  name="amzprice" class="inputyc">
-                        <input type="text" required="" data-role="input" placeholder="Paytm Url" data-bind="value: $data.PaytmUrl()"  name="paytmurl" class="inputyc">
-                        <input type="text" required="" data-role="input" placeholder="Paytm Price" data-bind="value: $data.PaytmPrice()"  name="paytmprice" class="inputyc">
+                        <input type="text" data-role="input" placeholder="Image Url"id="imgurl" class="inputyc">
+                        <input type="text" placeholder="Amazon India Url" id="amzurl" class="inputyc">
+                        <input type="text" placeholder="Amazon Price" id="amzprice" class="inputyc">
+                        <input type="text" placeholder="Paytm Url" id="paytmurl" class="inputyc">
+                        <input type="text" placeholder="Paytm Price" id="paytmprice" class="inputyc">
 
-                        <input type="submit" data-role="submit" data-bind="click: $data.AddProduct()" value="submit" name="submit" class="btn btn-primary inputyc">
+                        <input type="submit" value="submit" id="submit" class="btn btn-primary inputyc">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-    <script src="~/Scripts/Product/AddProduct.js"></script>
+<script src="~/Scripts/Product/AddProduct.js"></script>

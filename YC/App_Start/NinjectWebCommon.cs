@@ -64,6 +64,7 @@ namespace YC.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<ICategoryDataProvider>().To<CategoryDataProvider>();
+            kernel.Bind<IProductDataProvider>().To<ProductDataProvider>();
         }
     }
 }

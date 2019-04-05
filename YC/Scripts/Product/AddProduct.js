@@ -1,33 +1,44 @@
-﻿(function (AddProduct, undefined) {
-    'use strict';
+﻿$.ready(function () {
+    debugger;
+    var self = this;
 
-    AddProduct.BaseForm = function () {
+    self.ProductName = "";
+    self.Categories = [];
+    $.ajax({
+        url: currentDomain + "/Category/GetAllCategories", async: false, complete: function (data) {
 
-        var self = this;
+            $.each(data, function (t, d) {
+                self.Categories.push(d);
+                var optionHtml = "<option id='" + d.Id + "'>" + d.Name + "</option>";
+                $("#categories").append(optionHtml);
+            });
+        }
+    });
+    self.SelectedCategory = "";
+    self.ImgUrl = "";
+    self.AmazonUrl = "";
+    self.AmazonPrice = "";
+    self.PaytmUrl = "";
+    self.PaytmPrice = "";
 
-        self.ProductName = ko.observable("");
-        self.Categories = ko.observableArray([]);
-        $.ajax({
-            url: currentDomain + "/Category/GetAllCategories", async: false, complete: function (data) {
+    $("#submit").click(function () {
+        self.ProductName = $("#productname").text();
+        self.SelectedCategory = $("#categories option:selected").Id;
+        self.ImgUrl = $("#imgurl").text();
+        self.AmazonUrl = $("#amzurl").text();
+        self.AmazonPrice = $("#amzprice").text();
+        self.PaytmUrl = $("#paytmurl").text();
+        self.PaytmPrice = $("#paytmprice").text();
 
-                self.Categories(JSON.parse(data.responseText));
-                console.log(data);
+        $.post("Product/CreateNewProduct", { self }, function (data) {
+            if (data == true) {
+                alert('Succesfully added product');
             }
+            else {
+                alert('Something went wrong. Try again.');
+            }
+            
         });
+    });
 
-        self.ImgUrl = ko.observable("");
-        self.AmazonUrl = ko.observable("");
-        self.AmazonPrice = ko.observable("");
-        self.PaytmUrl = ko.observable("");
-        self.PaytmPrice = ko.observable("");
-
-        self.AddProduct = function () {
-            var x = self.ProductName();
-            var y = self.Categories();
-        };
-
-        return self;
-
-    };
-    window.AddProduct = AddProduct;
-})(window.AddProduct || {});
+});

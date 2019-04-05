@@ -9,15 +9,15 @@ namespace DAL
 {
     public class CategoryDataProvider : ICategoryDataProvider
     {
-        private readonly YCContext dBContext;
+        private readonly YCContext YCDBContext;
 
         public CategoryDataProvider(YCContext dBContext)
         {
-            this.dBContext = dBContext;
+            this.YCDBContext = dBContext;
         }
         public ICollection<Category> GetAll()
         {
-            return dBContext.Categories.ToList();
+            return YCDBContext.Categories.ToList();
         }
     }
 }

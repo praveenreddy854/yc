@@ -50,11 +50,13 @@
   <ItemGroup>
     <Compile Include="CategoryDataProvider.cs" />
     <Compile Include="ICategoryDataProvider.cs" />
+    <Compile Include="IProductDataProvider.cs" />
     <Compile Include="Migrations\201812310106201_Initialmigration.cs" />
     <Compile Include="Migrations\201812310106201_Initialmigration.Designer.cs">
       <DependentUpon>201812310106201_Initialmigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ProductDataProvider.cs" />
     <Compile Include="YCContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YCInitializer.cs" />
