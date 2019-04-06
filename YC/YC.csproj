@@ -177,6 +177,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIUtils\YCJsonResult.cs" />
+    <Compile Include="Utils\YCParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\YCServer.mdf" />
@@ -185,6 +186,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Imgs\IphoneXS.png" />
     <Content Include="Content\Product\AddProduct.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

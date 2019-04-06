@@ -20,11 +20,11 @@ namespace Models
 
         public string AmazonInUrl { get; set; }
 
-        public decimal AmazonInPrice { get; set; }
+        public decimal? AmazonInPrice { get; set; }
 
         public string PaytmUrl { get; set; }
 
-        public decimal PaytmPrice { get; set; }
+        public decimal? PaytmPrice { get; set; }
 
         public virtual IList<ProductFeature> ProductFeatures { get; set; }
 

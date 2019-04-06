@@ -4,7 +4,7 @@
     self.ProductName = "";
     self.Categories = [];
     $.ajax({
-        url: "/Category/GetAllCategories", success: function (result) {
+        url: currentDomain+"/Category/GetAllCategories", success: function (result) {
             console.log(result);
             var data = JSON.parse(result).Data;
             $.each(data, function (t, d) {
@@ -30,20 +30,24 @@
         self.PaytmUrl = $("#paytmurl").val();
         self.PaytmPrice = $("#paytmprice").val();
 
-        var paramObject = JSON.stringify(self);
-
-        $.ajax("Product/CreateNewProduct", {
-            data: { prod: paramObject },
-            success: function (data) {
+        $.post(currentDomain + "/Product/CreateNewProduct",
+            {
+                ProductName: self.ProductName,
+                ImgUrl: self.ImgUrl,
+                SelectedCategory: self.SelectedCategory,
+                AmazonUrl: self.AmazonUrl,
+                AmazonPrice: self.AmazonPrice,
+                PaytmUrl: self.PaytmUrl,
+                PaytmPrice: self.PaytmPrice
+            },
+            function (data) {
                 if (data == true) {
                     alert('Succesfully added product');
                 }
                 else {
                     alert('Something went wrong. Try again.');
                 }
-
-            }
-        });
+        }, );
     });
 
 });
