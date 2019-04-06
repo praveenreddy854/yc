@@ -6,28 +6,24 @@ using System.Web.Mvc;
 using DAL;
 using Models;
 using Newtonsoft.Json;
+using YC.UIUtils;
 
 namespace YC.Controllers
 {
     public class CategoryController : Controller
     {
         private readonly ICategoryDataProvider categoryDataProvider;
-        private Dictionary<int, string> categoryDict = new Dictionary<int, string>();
+        private IEnumerable<Category> categories = new List<Category>();
 
         public CategoryController(ICategoryDataProvider categoryDataProvider)
         {
             this.categoryDataProvider = categoryDataProvider;
         }
         // GET: Category
-        public string GetAllCategories()
+        public YCJsonResult GetAllCategories()
         {
-            var categories = categoryDataProvider.GetAll();
-
-            foreach(var category in categories)
-            {
-                categoryDict.Add(category.Id, category.Name);
-            }
-            return JsonConvert.SerializeObject(categoryDict);
+            categories = categoryDataProvider.GetAll();
+            return new YCJsonResult(categories);
         }
     }
 }

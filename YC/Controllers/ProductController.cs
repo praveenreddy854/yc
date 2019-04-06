@@ -31,17 +31,17 @@ namespace YC.Controllers
 
         [Route("AddProduct/89696FC7-661E-449E-9884-37915787CF2C")]
         [HttpPost]
-        public ActionResult CreateNewProduct(dynamic _product)
+        public ActionResult CreateNewProduct(dynamic prod)
         {
             Product product = new Product
             {
-                Name = _product.ProductName,
-                ImageUrl = _product.ImgUrl,
-                CategoryId = int.Parse(_product.AmazonUrl),
-                AmazonInUrl = _product.AmazonUrl,
-                AmazonInPrice = decimal.Parse(_product.AmazonPrice),
-                PaytmUrl = _product.PaytmUrl,
-                PaytmPrice = decimal.Parse(_product.PaytmPrice)
+                Name = prod.ProductName,
+                ImageUrl = prod.ImgUrl,
+                CategoryId = int.Parse(prod.SelectedCategory),
+                AmazonInUrl = prod.AmazonUrl,
+                AmazonInPrice = decimal.Parse(prod.AmazonPrice),
+                PaytmUrl = prod.PaytmUrl,
+                PaytmPrice = decimal.Parse(prod.PaytmPrice)
             };
 
             isSuccess = productDataProvider.CreateNewProduct(product);
