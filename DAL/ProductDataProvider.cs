@@ -15,17 +15,17 @@ namespace DAL
             YCDBContext = dBContext;
         }
 
-        public bool CreateNewProduct(Product product)
+        public int CreateNewProduct(Product product)
         {
             try
             {
                 YCDBContext.Products.Add(product);
                 YCDBContext.SaveChanges();
-                return true;
+                return product.Id;
             }
             catch
             {
-                return false;
+                return 0;
             }
             
         }

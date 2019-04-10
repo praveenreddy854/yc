@@ -5,7 +5,6 @@
     self.Categories = [];
     $.ajax({
         url: currentDomain+"/Category/GetAllCategories", success: function (result) {
-            console.log(result);
             var data = JSON.parse(result).Data;
             $.each(data, function (t, d) {
                 self.Categories.push(d);
@@ -40,9 +39,10 @@
                 PaytmUrl: self.PaytmUrl,
                 PaytmPrice: self.PaytmPrice
             },
-            function (data) {
-                if (data == true) {
-                    alert('Succesfully added product');
+            function (result) {
+                var data = JSON.parse(result).Data;
+                if (data > 0) {
+                    window.location = currentDomain + "/Feature/AddFeature/" + data;
                 }
                 else {
                     alert('Something went wrong. Try again.');

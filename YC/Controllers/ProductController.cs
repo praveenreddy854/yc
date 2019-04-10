@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DAL;
 using Models;
+using YC.UIUtils;
 using YC.Utils;
 
 namespace YC.Controllers
@@ -31,7 +32,7 @@ namespace YC.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateNewProduct(FormCollection prod)
+        public YCJsonResult CreateNewProduct(FormCollection prod)
         {
             Product product = new Product
             {
@@ -43,9 +44,8 @@ namespace YC.Controllers
                 PaytmUrl = prod["PaytmUrl"],
                 PaytmPrice = YCParser.ToDecimal(prod["PaytmPrice"])
             };
-
-            isSuccess = productDataProvider.CreateNewProduct(product);
-            return View();
+            int productId = productDataProvider.CreateNewProduct(product);
+            return new YCJsonResult(productId);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,10 +27,9 @@ namespace Models
 
         public decimal? PaytmPrice { get; set; }
 
+        [NotMapped]
         public virtual IList<ProductFeature> ProductFeatures { get; set; }
-
+        [NotMapped]
         public virtual Category Category { get; set; }
-
-        public virtual IList<ProductSubFeature> ProductSubFeatures { get; set; }
     }
 }

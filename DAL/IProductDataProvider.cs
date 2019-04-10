@@ -10,6 +10,6 @@ namespace DAL
     public interface IProductDataProvider
     {
         ICollection<Product> GetAll();
-        bool CreateNewProduct(Product product);
+        int CreateNewProduct(Product product);
     }
 }

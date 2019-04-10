@@ -51,13 +51,9 @@
     <Compile Include="CategoryDataProvider.cs" />
     <Compile Include="ICategoryDataProvider.cs" />
     <Compile Include="IProductDataProvider.cs" />
-    <Compile Include="Migrations\201812310106201_Initialmigration.cs" />
-    <Compile Include="Migrations\201812310106201_Initialmigration.Designer.cs">
-      <DependentUpon>201812310106201_Initialmigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904060606455_productdatatypechanged.cs" />
-    <Compile Include="Migrations\201904060606455_productdatatypechanged.Designer.cs">
-      <DependentUpon>201904060606455_productdatatypechanged.cs</DependentUpon>
+    <Compile Include="Migrations\201904062232167_SubfeaturesRemoved.cs" />
+    <Compile Include="Migrations\201904062232167_SubfeaturesRemoved.Designer.cs">
+      <DependentUpon>201904062232167_SubfeaturesRemoved.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ProductDataProvider.cs" />
@@ -76,11 +72,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812310106201_Initialmigration.resx">
-      <DependentUpon>201812310106201_Initialmigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904060606455_productdatatypechanged.resx">
-      <DependentUpon>201904060606455_productdatatypechanged.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904062232167_SubfeaturesRemoved.resx">
+      <DependentUpon>201904062232167_SubfeaturesRemoved.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

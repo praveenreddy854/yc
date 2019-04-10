@@ -23,9 +23,5 @@ namespace DAL
 
         public DbSet<Category> Categories { get; set; }
 
-        public DbSet<SubFeature> subFeatures { get; set; }
-
-        public DbSet<ProductSubFeature> ProductSubFeature { get; set; }
-
     }
 }

@@ -7,6 +7,7 @@ using DAL;
 using Models;
 using Newtonsoft.Json;
 using YC.UIUtils;
+using YC.Utils;
 
 namespace YC.Controllers
 {
@@ -19,6 +20,7 @@ namespace YC.Controllers
         {
             this.categoryDataProvider = categoryDataProvider;
         }
+        [YCAuthorizationFilter]
         // GET: Category
         public YCJsonResult GetAllCategories()
         {
