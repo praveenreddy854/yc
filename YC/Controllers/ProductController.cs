@@ -26,12 +26,14 @@ namespace YC.Controllers
 
         [Route("AddProduct/89696FC7-661E-449E-9884-37915787CF2C")]
         [HttpGet]
+        [YCAuthorizationFilter]
         public ActionResult AddProduct()
         {
             return View();
         }
 
         [HttpPost]
+        [YCAuthorizationFilter]
         public YCJsonResult CreateNewProduct(FormCollection prod)
         {
             Product product = new Product

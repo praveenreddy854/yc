@@ -20,7 +20,6 @@ namespace YC.Controllers
         {
             this.categoryDataProvider = categoryDataProvider;
         }
-        [YCAuthorizationFilter]
         // GET: Category
         public YCJsonResult GetAllCategories()
         {

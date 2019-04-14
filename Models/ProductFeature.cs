@@ -15,7 +15,7 @@ namespace Models
 
         public int FeatureId { get; set; }
 
-        public int FeatureDescription { get; set; }
+        public int FeatureDescription { get; set; } 
 
         [NotMapped]
         public Feature Feature { get; set; }
